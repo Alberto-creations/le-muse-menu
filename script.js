@@ -338,6 +338,23 @@ langSelect.addEventListener('change', e => {
   renderMenu(lang);
 });
 
-// Avvio iniziale in italiano
-renderMenu('it');
+// Avvio iniziale nella lingua selezionata dal menu a tendina
+const initialLang = langSelect.value;
+const t = translations[initialLang] || {};
+
+document.getElementById('menu-title').textContent = t["Menu"] || "Menu";
+document.getElementById('allergen-title').textContent = t["Informazioni e Allergeni"] || "Informazioni e Allergeni";
+document.getElementById('allergen-desc').textContent = t["Si avvisa la gentile clientela..."] || "Si avvisa la gentile clientela...";
+document.getElementById('allergen-info').textContent = t["Un nostro Responsabile incaricato..."] || "Un nostro Responsabile incaricato...";
+document.getElementById('allergen-legal').textContent = t["Elenco degli ingredienti allergenici utilizzati..."] || "Elenco degli ingredienti allergenici utilizzati...";
+
+for (let i = 1; i <= 14; i++) {
+  const el = document.getElementById("a" + i);
+  if (el && t[el.textContent]) {
+    el.textContent = t[el.textContent];
+  }
+}
+
+renderMenu(initialLang);
+
 
