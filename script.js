@@ -81,7 +81,7 @@ const translations = {
 "Vini Rossi": "Vins Rouges",
 "Vini al Calice": "Vins au Verre",
 "Vini": "Vins"
-  }
+  },
   es: {
     "Menu": "Menú",
     "Informazioni e Allergeni": "Información y Alérgenos",
