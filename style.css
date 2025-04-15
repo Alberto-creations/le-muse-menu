@@ -28,6 +28,14 @@ h2 {
   margin-top: 2rem;
   color: #7a2e1d;
 }
+h3 {
+  border-bottom: 1px solid #ccc;
+  margin-top: 2rem;
+  color: #7a2e1d;
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-family: 'Georgia', serif;
+}
 .menu-section {
   max-width: 800px;
   margin: 0 auto;

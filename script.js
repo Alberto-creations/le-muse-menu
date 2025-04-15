@@ -302,7 +302,36 @@ function renderMenu(lang) {
     link.textContent = translatedTitle;
     menuIndex.appendChild(link);
 
-    if (menuData[section]) {
+        if (section === "Vini") {
+      const viniSubSections = [
+        "Vini Bianchi",
+        "Frizzanti",
+        "Vini Spumante Metodo Classico",
+        "Vini Rossi",
+        "Vini al Calice"
+      ];
+
+      const viniTitle = document.createElement('h2');
+      viniTitle.textContent = translatedTitle;
+      viniTitle.id = sectionId;
+      menuContainer.appendChild(viniTitle);
+
+      viniSubSections.forEach(sub => {
+        if (menuData[sub]) {
+          const subHeading = document.createElement('h3');
+          subHeading.textContent = translations[lang]?.[sub] || sub;
+          menuContainer.appendChild(subHeading);
+
+          menuData[sub].forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'menu-item';
+            div.innerHTML = `<span>${item[lang] || item.it}</span><span>€ ${item.prezzo}</span>`;
+            menuContainer.appendChild(div);
+          });
+        }
+      });
+
+    } else if (menuData[section]) {
       const h2 = document.createElement('h2');
       h2.textContent = translatedTitle;
       h2.id = sectionId;
@@ -315,6 +344,7 @@ function renderMenu(lang) {
         menuContainer.appendChild(div);
       });
     }
+
   });
 }
 
